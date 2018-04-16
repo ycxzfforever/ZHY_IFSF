@@ -1,0 +1,8 @@
+#!/bin/sh 
+count=40
+num=`ls -t /JKJN/log/*RunLog*|wc -l`;
+if [ $num -gt $count ];
+then
+    num=`expr $num - $count`
+    ls -t /JKJN/log/*RunLog*|tail -$num|xargs rm
+fi
